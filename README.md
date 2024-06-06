@@ -1,24 +1,18 @@
-# README
+# My-Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+>This is my test application for creating my own Portfolio and other addsons
 
-Things you may want to cover:
+### Features
 
-* Ruby version
+- Real time chat engine for comments
+- Blog
+- Portfolio
+- Drag and Drop intefaces
 
-* System dependencies
+### Code
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```ruby
+def sample_api
+  puts "Here is the API"
+end
+```  
