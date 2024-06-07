@@ -1,10 +1,10 @@
 class PortfoliosController < ApplicationController
   def index
-    @portfolio_items=Portfolio.all
+    portfolios
   end
 
   def angular
-    @portfolio_items=Portfolio.angular
+    @portfolio_items = Portfolio.angular
   end
 
   def new
@@ -26,10 +26,10 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_items=Portfolio.find(params[:id])
+    portfolio
   end
   def update
-    @portfolio_items=Portfolio.find(params[:id])
+    portfolio
     respond_to do |format|
       if @portfolio_items.update(params.require(:portfolio).permit(:title,:subtitle, :body))
         format.html { redirect_to portfolios_path, notice: "Blog was successfully updated." }
@@ -42,10 +42,10 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio_items=Portfolio.find(params[:id])
+    portfolio
   end
   def destroy
-    @portfolio_items=Portfolio.find(params[:id]) #perform the lookup for the item
+    @portfolio_items = Portfolio.find(params[:id]) #perform the lookup for the item
 
     @portfolio_items.destroy
 
@@ -53,5 +53,14 @@ class PortfoliosController < ApplicationController
       format.html { redirect_to portfolios_path, notice: "Portfolios was successfully destroyed." }
 
     end
+  end
+
+  private
+  def portfolio
+    @portfolio ||= Portfolio.find(params[:id])
+  end
+
+  def portfolios
+    @portfolios ||= Portfolio.all
   end
 end
