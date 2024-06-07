@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+  include Placeholder
   validates_presence_of :title ,:body ,:subtitle , :main_image , :thumb_image # input validation for the attributes, listed attributes are manadatory during the insertion of data
 
   def self.angular
@@ -9,7 +10,7 @@ class Portfolio < ApplicationRecord
 
   after_initialize :set_defaults # callbacks
   def set_defaults  # this action defines defaults whenever anew portfolio item is created
-    self.main_image ||= "https://placehold.co/600x400"  #if self.main_image== nil , then set the default images to the portfolio
-    self.thumb_image ||="https://placehold.co/350x200"
+    self.main_image ||= Placeholder.image_generator(height: '650', width: '300') #if self.main_image== nil , then set the default images to the portfolio
+    self.thumb_image ||= Placeholder.image_generator(height: '250', width: '250')
   end
 end
