@@ -8,7 +8,7 @@ end
   Blog.create!(
     title: "My blog post #{x}",
      body: "This action is now displaying the parameters for the article that are coming in from the form. However, this isn't really all that helpful.
-      Yes, you can see the parameters but nothing in particular is being done with them.",
+      Yes, you can see the parameters but nothing in particular is being done with them." ,
     topic_id: Topic.last.id
   )
 end

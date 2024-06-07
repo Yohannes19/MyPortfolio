@@ -1,7 +1,9 @@
 class Portfolio < ApplicationRecord
   has_many :technologies
+  accepts_nested_attributes_for :technologies, reject_if: ->(attrs) { attrs['name'].blank? } # allows for single portfolio to accept many technologies
+  
   include Placeholder
-  validates_presence_of :title ,:body ,:subtitle , :main_image , :thumb_image # input validation for the attributes, listed attributes are manadatory during the insertion of data
+  validates_presence_of :title ,:body , :main_image , :thumb_image # input validation for the attributes, listed attributes are manadatory during the insertion of data
 
   def self.angular
     where(subtitle: 'Angular')
