@@ -3,8 +3,12 @@ class PortfoliosController < ApplicationController
     @portfolio_items=Portfolio.all
   end
 
+  def angular
+    @portfolio_items=Portfolio.angular
+  end
+
   def new
-    @portfolio_items = Portfolio.new
+    @portfolio_items = Portfolio.new   #  new instance of form is generated
   end
 
   def create
@@ -12,7 +16,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_items.save
-        format.html { redirect_to  portfolios_path, notice: "Blog was successfully created." }
+        format.html { redirect_to  portfolios_path, notice: "portfolio was successfully created." }
 
       else
         format.html { render :new, status: :unprocessable_entity }
