@@ -28,6 +28,8 @@ module YohannesPort
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.action_controller.
+      permit_all_parametes = true
     config.generators.system_tests = nil
   end
 end
